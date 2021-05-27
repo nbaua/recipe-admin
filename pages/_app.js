@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import '../styles/globals.css';
 import { AppContextProvider } from './../utils/app-context';
@@ -8,13 +9,14 @@ import { AppContextProvider } from './../utils/app-context';
 function MyApp({ Component, pageProps }) {
 	let [isModal, setIsModal] = useState(false);
 	let [isLoggedIn, setIsLoggedIn] = useState(false);
+	const router = useRouter();
 
 	const handleClick = () => {
 		setIsModal((isModal = !isModal));
 	};
 
 	const handleLogin = () => {
-		setIsModal((isModal = !isModal));
+		router.push('/login');
 	};
 
 	const active = isModal ? 'is-active' : '';
