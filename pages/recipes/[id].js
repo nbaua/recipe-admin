@@ -1,11 +1,17 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { useAppContext } from './../../utils/app-context';
 
 function recipeDetail() {
+	const { activeSession } = useAppContext();
 	const router = useRouter();
 	const [recipeId, setRecipeId] = useState();
 
 	useEffect(() => {
+		if (activeSession === '') {
+			router.push('/login');
+		}
+
 		if (router.asPath !== router.route) {
 			setRecipeId(router.query.id);
 		}
