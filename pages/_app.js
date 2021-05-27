@@ -7,7 +7,13 @@ import { AppContextProvider } from './../utils/app-context';
 
 function MyApp({ Component, pageProps }) {
 	let [isModal, setIsModal] = useState(false);
+	let [isLoggedIn, setIsLoggedIn] = useState(false);
+
 	const handleClick = () => {
+		setIsModal((isModal = !isModal));
+	};
+
+	const handleLogin = () => {
 		setIsModal((isModal = !isModal));
 	};
 
@@ -65,24 +71,20 @@ function MyApp({ Component, pageProps }) {
 							<Link href='/recipes'>
 								<a className='navbar-item'>Recipes</a>
 							</Link>
-							<div className='navbar-item has-dropdown is-hoverable'>
-								<a className='navbar-link'>More</a>
-								<div className='navbar-dropdown'>
-									<a className='navbar-item' onClick={handleClick}>
-										About
-									</a>
-									<hr className='navbar-divider' />
-									<a className='navbar-item'>React-NextJS-Bulma Demo</a>
-									<a className='navbar-item'>Created By Nhilesh Baua</a>
-								</div>
-							</div>
 						</div>
 						<div className='navbar-end'>
 							<div className='navbar-item'>
-								<div className='buttons'>
-									<a className='button is-dark' onClick={handleClick}>
-										About
-									</a>
+								<div className='navbar-item has-dropdown is-hoverable'>
+									<a className='navbar-link'>{isLoggedIn ? 'Welcome Admin' : 'Welcome Anonymous'}</a>
+									<div className='navbar-dropdown'>
+										<a className='navbar-item' onClick={handleLogin}>
+											{isLoggedIn ? 'Logout' : 'Login'}
+										</a>
+										<hr className='navbar-divider' />
+										<a className='navbar-item' onClick={handleClick}>
+											About
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
