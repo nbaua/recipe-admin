@@ -74,9 +74,9 @@ function MyApp({ Component, pageProps }) {
 
 						<div id='mainBar' className='navbar-menu'>
 							<div className='navbar-start'>
-								<a className='navbar-item' href='/'>
-									Home
-								</a>
+								<Link href='/'>
+									<a className='navbar-item'>Home</a>
+								</Link>
 								<Link href='/recipes'>
 									<a className='navbar-item'>Recipes</a>
 								</Link>

@@ -139,7 +139,7 @@ function Recipes() {
 							{page.map((row) => {
 								prepareRow(row);
 								return (
-									<Link href={`/recipes/${row.original._id}`}>
+									<Link key={row.original._id} href={`/recipes/${row.original._id}`}>
 										<tr {...row.getRowProps()} onClick={() => handleEdit(row.original)}>
 											{row.cells.map((cell) => {
 												return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
