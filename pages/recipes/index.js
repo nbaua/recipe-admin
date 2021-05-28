@@ -14,7 +14,6 @@ function Recipes() {
 	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
-		console.log('page effect....');
 		setIsLoading(true);
 		if (getActiveUserTokenHandler() === '') {
 			router.push('/login');

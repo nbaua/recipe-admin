@@ -1,28 +1,56 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { useAppContext } from './../../utils/app-context';
 
 function Login() {
-	const { activeSession } = useAppContext();
+	const { setActiveUserTokenHandler } = useAppContext();
+	const router = useRouter();
+
+	const handleLogin = (e) => {
+		e.preventDefault();
+		fetch(process.env.NEXT_PUBLIC_LOGIN_URL, {
+			method: 'POST',
+			// mode: 'cors',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				email: e.target.email.value,
+				password: e.target.password.value,
+			}),
+		})
+			.then((response) => {
+				response.json().then((data) => {
+					localStorage.setItem('token', data.token);
+					setActiveUserTokenHandler(data.token);
+					router.push('/');
+				});
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+	};
 
 	return (
-		<div className='container section  mt-6'>
+		<div className='container section mt-6'>
 			<div className='card'>
-				<form className='box'>
+				<form className='box' onSubmit={handleLogin}>
 					<div className='field'>
 						<label className='label'>Email</label>
 						<div className='control'>
-							<input className='input' type='email' placeholder='e.g. alex@example.com' />
+							<input className='input' id='email' name='email' type='email' placeholder='e.g. username@domain.com' />
 						</div>
 					</div>
 
 					<div className='field'>
 						<label className='label'>Password</label>
 						<div className='control'>
-							<input className='input' type='password' placeholder='********' />
+							<input className='input' id='password' name='password' type='password' placeholder='*********' />
 						</div>
 					</div>
-
-					<button className='button is-primary'>Sign in</button>
+					<button className='button is-primary' type='submit'>
+						Sign in
+					</button>
 				</form>
 			</div>
 		</div>
