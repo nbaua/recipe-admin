@@ -25,7 +25,7 @@ function Recipes() {
 
 	const getDataFromRemoteAPI = (cp, t) => {
 		const headers = { 'Content-Type': 'application/json', Authorization: t };
-		fetch('http://localhost:3300/filter/recipes?page={CP}&limit=10'.replace('{CP}', cp), { headers })
+		fetch(process.env.NEXT_PUBLIC_RECIPES_URL.replace('{CP}', cp), { headers })
 			.then((response) => response.json())
 			.then((res) => {
 				setTimeout(() => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { useAppContext } from './../utils/app-context';
 
 function rootPage() {
-	const { activeSession } = useAppContext();
+	const { activeUserToken } = useAppContext();
 
 	return (
 		<section className='hero is-success is-halfheight'>
