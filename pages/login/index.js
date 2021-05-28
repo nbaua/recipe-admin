@@ -32,26 +32,28 @@ function Login() {
 	};
 
 	return (
-		<div className='container section mt-6'>
-			<div className='card'>
-				<form className='box' onSubmit={handleLogin}>
-					<div className='field'>
-						<label className='label'>Email</label>
-						<div className='control'>
-							<input className='input' id='email' name='email' type='email' placeholder='e.g. username@domain.com' />
+		<div className='column is-3 is-offset-4'>
+			<div className='container section mt-6'>
+				<div className='card'>
+					<form className='box' onSubmit={handleLogin}>
+						<div className='field'>
+							<label className='label'>Email</label>
+							<div className='control'>
+								<input className='input' id='email' name='email' type='email' maxLength='50' required={true} placeholder='Enter your valid email id' />
+							</div>
 						</div>
-					</div>
 
-					<div className='field'>
-						<label className='label'>Password</label>
-						<div className='control'>
-							<input className='input' id='password' name='password' type='password' placeholder='*********' />
+						<div className='field'>
+							<label className='label'>Password</label>
+							<div className='control'>
+								<input className='input' id='password' name='password' type='password' maxLength='50' required={true} placeholder='*********' />
+							</div>
 						</div>
-					</div>
-					<button className='button is-primary' type='submit'>
-						Sign in
-					</button>
-				</form>
+						<button className='button is-primary' type='submit'>
+							Sign in
+						</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	);
