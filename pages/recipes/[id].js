@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import { useAppContext } from './../../utils/app-context';
 
 function recipeDetail() {
-	const { activeSession } = useAppContext();
+	const { activeUserToken } = useAppContext();
 	const router = useRouter();
 	const [recipeId, setRecipeId] = useState();
 
 	useEffect(() => {
-		if (activeSession === '') {
+		if (activeUserToken === '') {
 			router.push('/login');
 		}
 

@@ -7,10 +7,19 @@ export function useAppContext() {
 }
 
 export function AppContextProvider({ children }) {
-	const [activeSession, setActiveSession] = useState('bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDhiZjE3MmEyMjI4ODI2OTA2OTk1OTIiLCJpYXQiOjE2MTk3ODQwNTZ9.g8svznwEnikyNg88JDashWLKpAtJdwMjFs3VwkPGigE');
+	const [activeUserToken, setActiveUserToken] = useState('');
 
-	function setActiveSessionHandler(val) {
-		setActiveSession(val);
+	function setActiveUserTokenHandler(val) {
+		setActiveUserToken(val);
 	}
-	return <AppContext.Provider value={{ activeSession, setActiveSessionHandler }}>{children}</AppContext.Provider>;
+
+	function getActiveUserTokenHandler() {
+		if (activeUserToken) {
+			return 'bearer ' + activeUserToken;
+		} else {
+			return '';
+		}
+	}
+
+	return <AppContext.Provider value={{ getActiveUserTokenHandler, setActiveUserTokenHandler }}>{children}</AppContext.Provider>;
 }
