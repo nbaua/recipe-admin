@@ -14,6 +14,7 @@ function Recipes() {
 	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
+		console.log('page effect....');
 		setIsLoading(true);
 		if (getActiveUserTokenHandler() === '') {
 			router.push('/login');
@@ -99,7 +100,11 @@ function Recipes() {
 	const getPageOptions = (totalPages) => {
 		let options = [];
 		for (let i = 1; i <= totalPages; i++) {
-			options.push(<option value={i}>Page {i}</option>);
+			options.push(
+				<option key={i} value={i}>
+					Page {i}
+				</option>
+			);
 		}
 		return options;
 	};
@@ -111,12 +116,12 @@ function Recipes() {
 			<section className='hero is-vcentered mt-5'>
 				<div className='hero-body column'>
 					{isLoading && (
-						<progress class='progress is-small is-primary' max='100'>
+						<progress className='progress is-small is-primary' max='100'>
 							15%
 						</progress>
 					)}
 					{!isLoading && (
-						<progress class='progress is-small is-ghost' value='0' max='100'>
+						<progress className='progress is-small is-ghost' value='0' max='100'>
 							0%
 						</progress>
 					)}
@@ -148,12 +153,12 @@ function Recipes() {
 					</table>
 				</div>
 			</section>
-			<section class='column is-7 level ml-5 mr-5'>
-				<div class='level-right'>
-					<div class='level-item'>
-						Showing records for page <span class='tag is-light'>{currentPage}</span>&nbsp;of&nbsp; <span class='tag is-light'>{meta?.pages}</span>
+			<section className='column is-7 level ml-5 mr-5'>
+				<div className='level-right'>
+					<div className='level-item'>
+						Showing records for page <span className='tag is-light'>{currentPage}</span>&nbsp;of&nbsp; <span className='tag is-light'>{meta?.pages}</span>
 					</div>
-					<div class='level-item select is-small'>
+					<div className='level-item select is-small'>
 						<select onChange={loadSpecificPageData}>
 							<option value='-1'>Go to Page</option>
 							{getPageOptions(meta?.pages)}
