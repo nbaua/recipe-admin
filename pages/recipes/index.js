@@ -148,10 +148,10 @@ function Recipes() {
 					</table>
 				</div>
 			</section>
-			<section class='column is-half  level ml-5 mr-5'>
+			<section class='column is-7 level ml-5 mr-5'>
 				<div class='level-right'>
 					<div class='level-item'>
-						Showing records for page <span class='tag is-light'>{currentPage}</span> of <span class='tag is-light'>{meta?.pages}</span>
+						Showing records for page <span class='tag is-light'>{currentPage}</span>&nbsp;of&nbsp; <span class='tag is-light'>{meta?.pages}</span>
 					</div>
 					<div class='level-item select is-small'>
 						<select onChange={loadSpecificPageData}>
