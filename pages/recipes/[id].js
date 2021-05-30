@@ -13,6 +13,7 @@ function recipeDetail() {
 	const [initialValues, setInitialValues] = useState();
 
 	const onSubmit = (values) => {
+		delete values._id;
 		console.log(JSON.stringify(values, null, 2));
 	};
 
@@ -61,7 +62,7 @@ function recipeDetail() {
 	};
 
 	return (
-		<div className='section  mt-6'>
+		<div className='section mt-6'>
 			<FormikProvider enableReinitialize={true} value={formikBag}>
 				<form onSubmit={formikBag.handleSubmit}>
 					<div className='columns'>
