@@ -161,41 +161,39 @@ function recipeDetail() {
 												{values.ingredients && values.ingredients.length > 0 ? (
 													values.ingredients.map((ingredient, index) => (
 														<div key={index}>
-															<div>
-																<div className='card mb-3'>
-																	<div className='card-content'>
+															<div className='card mb-3'>
+																<div className='card-content'>
+																	<div className='control'>
+																		<label className='label is-small'>Enter Ingredient's Name</label>
 																		<div className='control'>
-																			<label className='label is-small'>Enter Ingredient's Name</label>
-																			<div className='control'>
-																				<Field className='input is-small' id={`ingredients.${index}.name`} name={`ingredients.${index}.name`} />
-																			</div>
+																			<Field className='input is-small' id={`ingredients.${index}.name`} name={`ingredients.${index}.name`} />
 																		</div>
-																		<div className='content'>
-																			<div className='field is-grouped'>
+																	</div>
+																	<div className='content'>
+																		<div className='field is-grouped'>
+																			<div className='control'>
+																				<label className='label is-small'>Qty - Amount </label>
 																				<div className='control'>
-																					<label className='label is-small'>Qty - Amount </label>
-																					<div className='control'>
-																						<Field className='input is-small' id={`ingredients.${index}`} name={`ingredients.${index}.amount`} />
-																					</div>
+																					<Field className='input is-small' id={`ingredients.${index}`} name={`ingredients.${index}.amount`} />
 																				</div>
+																			</div>
+																			<div className='control'>
+																				<label className='label is-small'>Qty- Unit</label>
 																				<div className='control'>
-																					<label className='label is-small'>Qty- Unit</label>
-																					<div className='control'>
-																						<Field className='input is-small' id={`ingredients.${index}.unit`} name={`ingredients.${index}.unit`} />
-																					</div>
+																					<Field className='input is-small' id={`ingredients.${index}.unit`} name={`ingredients.${index}.unit`} />
 																				</div>
-																				<div className='control'>
-																					<label className='label is-small has-text-grey-light'>Removes the entire form</label>
-																					<button className='button is-small is-danger' type='button' onClick={() => arrayHelpers.remove(index)}>
-																						Remove Block
-																					</button>
-																				</div>
-																				<div className='control'>
-																					<label className='label is-small has-text-grey-light'>Adds a new form</label>
-																					<button className='button is-small is-info' type='button' onClick={() => arrayHelpers.insert(index, '')}>
-																						Insert Block
-																					</button>
-																				</div>
+																			</div>
+																			<div className='control'>
+																				<label className='label is-small has-text-grey-light'>Removes the entire form</label>
+																				<button className='button is-small is-danger' type='button' onClick={() => arrayHelpers.remove(index)}>
+																					Remove Block
+																				</button>
+																			</div>
+																			<div className='control'>
+																				<label className='label is-small has-text-grey-light'>Adds a new form</label>
+																				<button className='button is-small is-info' type='button' onClick={() => arrayHelpers.insert(index, '')}>
+																					Insert Block
+																				</button>
 																			</div>
 																		</div>
 																	</div>
@@ -223,27 +221,34 @@ function recipeDetail() {
 													values.instructions.map((instruction, index) => (
 														<div key={index}>
 															<div className='field '>
-																<div className='field-body'>
-																	<div className='field is-expanded'>
-																		<div className='field has-addons'>
-																			<div className='control is-1'>
-																				<label className='label is-small'>Instruction's Rank (Enter dash - to skip)</label>
-																				<Field className='input is-small' id={`instructions.${index}.step`} name={`instructions.${index}.step`} />
+																<div className='card mb-3'>
+																	<div className='card-content'>
+																		<div className='content'>
+																			<div className='field is-grouped'>
+																				<div className='control'>
+																					<label className='label is-small'>Instruction's Rank (Enter dash - to skip)</label>
+																					<div className='control'>
+																						<Field className='input is-small' id={`instructions.${index}.step`} name={`instructions.${index}.step`} />
+																					</div>
+																				</div>
+																				<div className='control'>
+																					<label className='label is-small has-text-grey-light'>Removes the entire form</label>
+																					<button className='button is-small is-danger' type='button' onClick={() => arrayHelpers.remove(index)}>
+																						Remove Block
+																					</button>
+																				</div>
+																				<div className='control'>
+																					<label className='label is-small has-text-grey-light'>Adds a new form</label>
+																					<button className='button is-small is-info' type='button' onClick={() => arrayHelpers.insert(index, '')}>
+																						Insert Block
+																					</button>
+																				</div>
 																			</div>
-																			<div className='control is-expanded'>
-																				<label className='label is-small'>Instruction's Description </label>
+																		</div>
+																		<div className='control'>
+																			<label className='label is-small'>Instruction's Description </label>
+																			<div className='control'>
 																				<Field className='input is-small' id={`instructions.${index}`} name={`instructions.${index}.description`} />
-																			</div>
-
-																			<div className='control mt-5'>
-																				<button className='button is-small is-danger' type='button' onClick={() => arrayHelpers.remove(index)}>
-																					-
-																				</button>
-																			</div>
-																			<div className='control mt-5'>
-																				<button className='button is-small is-success' type='button' onClick={() => arrayHelpers.insert(index, '')}>
-																					+
-																				</button>
 																			</div>
 																		</div>
 																	</div>
