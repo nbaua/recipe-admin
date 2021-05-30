@@ -90,6 +90,13 @@ function recipeDetail() {
 									}}>
 									<a>Preparation Time</a>
 								</li>
+								<li
+									className={activeTab === 3 ? 'is-active' : ''}
+									onClick={() => {
+										setActiveTab(3);
+									}}>
+									<a>Preview Changes</a>
+								</li>
 							</ul>
 						</div>
 						<div className='column is-size-6 is-2 '>
@@ -303,6 +310,11 @@ function recipeDetail() {
 											</div>
 										)}
 									/>
+								</div>
+							)}
+							{activeTab === 3 && (
+								<div className='column tab'>
+									<pre>{JSON.stringify(values, null, 2)}</pre>
 								</div>
 							)}
 						</div>
