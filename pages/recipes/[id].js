@@ -161,7 +161,7 @@ function recipeDetail() {
 												{values.ingredients && values.ingredients.length > 0 ? (
 													values.ingredients.map((ingredient, index) => (
 														<div key={index}>
-															<div className='field is-horizontal'>
+															<div className='field '>
 																<div className='field-body'>
 																	<div className='field is-expanded'>
 																		<div className='field has-addons'>
@@ -195,7 +195,6 @@ function recipeDetail() {
 													))
 												) : (
 													<button className='button is-success' type='button' onClick={() => arrayHelpers.push('')}>
-														{/* show this when user has removed all ingredients from the list */}
 														Add an Ingredient
 													</button>
 												)}
@@ -213,7 +212,7 @@ function recipeDetail() {
 												{values.instructions && values.instructions.length > 0 ? (
 													values.instructions.map((instruction, index) => (
 														<div key={index}>
-															<div className='field is-horizontal'>
+															<div className='field '>
 																<div className='field-body'>
 																	<div className='field is-expanded'>
 																		<div className='field has-addons'>
@@ -244,7 +243,6 @@ function recipeDetail() {
 													))
 												) : (
 													<button className='button is-success' type='button' onClick={() => arrayHelpers.push('')}>
-														{/* show this when user has removed all instructions from the list */}
 														Add an Instruction (Step)
 													</button>
 												)}
@@ -262,22 +260,19 @@ function recipeDetail() {
 												{values.times && values.times.length > 0 ? (
 													values.times.map((tm, index) => (
 														<div key={index}>
-															<div className='field is-horizontal'>
-																<div className='field-body'>
-																	<div className='field is-expanded'>
-																		<div className='field has-addons'>
-																			<div className='control is-1'>
-																				<label className='label is-small'>Type of Time </label>
-																				<Field className='input has-text-grey-dark has-background-warning-light	' disabled id={`times.${index}.type`} name={`times.${index}.type`} />
-																			</div>
-																			<div className='control is-expanded'>
-																				<label className='label is-small'>Time Required (hr) </label>
-																				<Field className='input' id={`times.${index}.hr`} name={`times.${index}.hr`} />
-																			</div>
-																			<div className='control is-expanded'>
-																				<label className='label is-small'>Time Required (min) </label>
-																				<Field className='input' id={`times.${index}.min`} name={`times.${index}.min`} />
-																			</div>
+															<div className='card mb-5'>
+																<header>
+																	<Field className='input has-text-grey-dark has-background-warning-light' disabled id={`times.${index}.type`} name={`times.${index}.type`} />
+																</header>
+																<div className='card-content'>
+																	<div className='field is-grouped'>
+																		<div className='control is-expanded'>
+																			<label className='label is-small'>Time Required (hr)</label>
+																			<Field className='input' id={`times.${index}.hr`} name={`times.${index}.hr`} />
+																		</div>
+																		<div className='control is-expanded'>
+																			<label className='label is-small'>Time Required (min)</label>
+																			<Field className='input' id={`times.${index}.min`} name={`times.${index}.min`} />
 																		</div>
 																	</div>
 																</div>
@@ -287,6 +282,7 @@ function recipeDetail() {
 												) : (
 													<button className='button is-success' type='button' onClick={() => arrayHelpers.push('')}>
 														Add a Time
+														{/* This is not used for time being - kept for future compatibility  */}
 													</button>
 												)}
 											</div>
