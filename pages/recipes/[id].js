@@ -152,7 +152,7 @@ function recipeDetail() {
 							<div className='field'>
 								<div className='control'>
 									<label className='checkbox'>
-										<input type='checkbox' name='published' id='published' value='One' onChange={(e) => setFieldValue('published', e.target.value)} value={formikBag.values.published} />
+										<Field type='checkbox' name='published' />
 										&nbsp;Published?
 									</label>
 								</div>
@@ -232,6 +232,12 @@ function recipeDetail() {
 																	<div className='card-content'>
 																		<div className='content'>
 																			<div className='field is-grouped'>
+																				<div className='control'>
+																					<label className='label is-small'>Auto-Id</label>
+																					<div className='control'>
+																						<Field className='input is-small' id={`instructions.${index}._id`} name={`instructions.${index}._id`} disabled />
+																					</div>
+																				</div>
 																				<div className='control'>
 																					<label className='label is-small'>Instruction's Rank (Enter dash - to skip)</label>
 																					<div className='control'>
