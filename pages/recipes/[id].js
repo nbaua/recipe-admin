@@ -211,7 +211,7 @@ function recipeDetail() {
 												) : (
 													<h4>Let's roll something new...</h4>
 												)}
-												<button className='button is-small is-success mb-3 mt-3' type='button' onClick={() => arrayHelpers.push('')}>
+												<button className='button is-small is-success mb-3 mt-3' type='button' onClick={() => arrayHelpers.push({ name: '', unit: '', amount: '' })}>
 													Add an Ingredient
 												</button>
 											</div>
