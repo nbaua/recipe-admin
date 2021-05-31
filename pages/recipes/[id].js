@@ -95,6 +95,13 @@ function recipeDetail() {
 									onClick={() => {
 										setActiveTab(3);
 									}}>
+									<a>Tags</a>
+								</li>
+								<li
+									className={activeTab === 4 ? 'is-active' : ''}
+									onClick={() => {
+										setActiveTab(4);
+									}}>
 									<a>Preview Changes</a>
 								</li>
 							</ul>
@@ -320,6 +327,44 @@ function recipeDetail() {
 								</div>
 							)}
 							{activeTab === 3 && (
+								<div className='column tab'>
+									<FieldArray
+										name='tags'
+										render={(arrayHelpers) => (
+											<div className='is-grouped'>
+												{values.tags && values.tags.length > 0 ? (
+													values.tags.map((tm, index) => (
+														<div key={index}>
+															<div className='card mb-5'>
+																<div className='card-content'>
+																	<div className='field is-grouped'>
+																		<div className='control is-expanded'>
+																			<label className='label is-small'>Enter Tag</label>
+																			<Field className='input is-small' id={`tags.${index}`} name={`tags.${index}`} />
+																		</div>
+																		<div className='control'>
+																			<label className='label is-small has-text-grey-light'>Removes the entire form</label>
+																			<button className='button is-small is-danger' type='button' onClick={() => arrayHelpers.remove(index)}>
+																				Remove Tag
+																			</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													))
+												) : (
+													<h4>Let's roll something new...</h4>
+												)}
+												<button className='button is-small is-success mb-3 mt-3' type='button' onClick={() => arrayHelpers.push('')}>
+													Add a Tag
+												</button>
+											</div>
+										)}
+									/>
+								</div>
+							)}
+							{activeTab === 4 && (
 								<div className='column tab'>
 									<pre>{JSON.stringify(values, null, 2)}</pre>
 								</div>
