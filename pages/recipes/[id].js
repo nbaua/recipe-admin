@@ -209,10 +209,11 @@ function recipeDetail() {
 														</div>
 													))
 												) : (
-													<button className='button is-small is-success' type='button' onClick={() => arrayHelpers.push('')}>
-														Add an Ingredient
-													</button>
+													<h4>Let's roll something new...</h4>
 												)}
+												<button className='button is-small is-success mb-3 mt-3' type='button' onClick={() => arrayHelpers.push('')}>
+													Add an Ingredient
+												</button>
 											</div>
 										)}
 									/>
@@ -235,7 +236,7 @@ function recipeDetail() {
 																				<div className='control'>
 																					<label className='label is-small'>Auto-Id</label>
 																					<div className='control'>
-																						<Field className='input is-small' id={`instructions.${index}._id`} name={`instructions.${index}._id`} disabled />
+																						<Field className='input is-small' id={`instructions.${index}._id`} name={`instructions.${index}._id`} />
 																					</div>
 																				</div>
 																				<div className='control'>
@@ -252,7 +253,7 @@ function recipeDetail() {
 																				</div>
 																				<div className='control'>
 																					<label className='label is-small has-text-grey-light'>Adds a new form</label>
-																					<button className='button is-small is-info' type='button' onClick={() => arrayHelpers.insert(index, '')}>
+																					<button className='button is-small is-info' type='button' onClick={() => arrayHelpers.insert(index, { _id: Math.random(), step: 'Step ' + Math.random(), description: '...' })}>
 																						Insert Block
 																					</button>
 																				</div>
@@ -270,10 +271,11 @@ function recipeDetail() {
 														</div>
 													))
 												) : (
-													<button className='button is-small is-success' type='button' onClick={() => arrayHelpers.push('')}>
-														Add an Instruction (Step)
-													</button>
+													<h4>Let's roll something new...</h4>
 												)}
+												<button className='button is-small is-success mb-3 mt-3' type='button' onClick={() => arrayHelpers.push({ _id: values.instructions.length + 1, step: 'Step ' + (values.instructions.length + 1), description: '...' })}>
+													Add an Instruction (Step)
+												</button>
 											</div>
 										)}
 									/>
@@ -310,7 +312,6 @@ function recipeDetail() {
 												) : (
 													<button className='button is-small is-success' type='button' onClick={() => arrayHelpers.push('')}>
 														Add a Time
-														{/* This is not used for time being - kept for future compatibility  */}
 													</button>
 												)}
 											</div>
