@@ -140,13 +140,13 @@ function recipeDetail() {
 							<div className='field'>
 								<label className='label is-small'>Enter Views</label>
 								<div className='control'>
-									<Field className='input is-small' id='views' name='views' type='number' onChange={(e) => setFieldValue('views', e.target.value)} value={formikBag.values.views} />
+									<Field className='input is-small' id='views' name='views' type='number' />
 								</div>
 							</div>
 							<div className='field'>
 								<label className='label is-small'>Enter Likes</label>
 								<div className='control'>
-									<Field className='input is-small' id='likes' name='likes' type='number' onChange={(e) => setFieldValue('likes', e.target.value)} value={formikBag.values.likes} />
+									<Field className='input is-small' id='likes' name='likes' type='number' />
 								</div>
 							</div>
 							<div className='field'>
