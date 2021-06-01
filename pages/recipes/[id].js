@@ -117,13 +117,13 @@ function recipeDetail() {
 							<div className='field'>
 								<label className='label is-small'>Enter Name</label>
 								<div className='control'>
-									<Field className='input is-small' id='name' name='name' type='text' onChange={(e) => setFieldValue('name', e.target.value)} value={formikBag.values.name} />
+									<Field className='input' id='name' name='name' type='text' onChange={(e) => setFieldValue('name', e.target.value)} value={formikBag.values.name} />
 								</div>
 							</div>
 							<div className='field'>
 								<label className='label is-small'>Enter Category</label>
 								<div className='control'>
-									<Field className='input is-small' id='category' name='category' type='text' onChange={(e) => setFieldValue('category', e.target.value)} value={formikBag.values.category} />
+									<Field className='input' id='category' name='category' type='text' onChange={(e) => setFieldValue('category', e.target.value)} value={formikBag.values.category} />
 								</div>
 							</div>
 							<div className='field'>
@@ -135,25 +135,25 @@ function recipeDetail() {
 							<div className='field'>
 								<label className='label is-small'>Enter Picture Url</label>
 								<div className='control'>
-									<Field className='input is-small' id='pictureUrl' name='pictureUrl' type='text' onChange={(e) => setFieldValue('pictureUrl', e.target.value)} value={formikBag.values.pictureUrl} />
+									<Field className='input' id='pictureUrl' name='pictureUrl' type='text' onChange={(e) => setFieldValue('pictureUrl', e.target.value)} value={formikBag.values.pictureUrl} />
 								</div>
 							</div>
 							<div className='field'>
 								<label className='label is-small'>Enter Servings</label>
 								<div className='control'>
-									<Field className='input is-small' id='servings' name='servings' type='text' onChange={(e) => setFieldValue('servings', e.target.value)} value={formikBag.values.servings} />
+									<Field className='input' id='servings' name='servings' type='text' onChange={(e) => setFieldValue('servings', e.target.value)} value={formikBag.values.servings} />
 								</div>
 							</div>
 							<div className='field'>
 								<label className='label is-small'>Enter Views</label>
 								<div className='control'>
-									<Field className='input is-small' id='views' name='views' type='number' />
+									<Field className='input' id='views' name='views' type='number' />
 								</div>
 							</div>
 							<div className='field'>
 								<label className='label is-small'>Enter Likes</label>
 								<div className='control'>
-									<Field className='input is-small' id='likes' name='likes' type='number' />
+									<Field className='input' id='likes' name='likes' type='number' />
 								</div>
 							</div>
 							<div className='field'>
@@ -180,7 +180,7 @@ function recipeDetail() {
 																	<div className='control'>
 																		<label className='label is-small'>Enter Ingredient's Name</label>
 																		<div className='control'>
-																			<Field className='input is-small' id={`ingredients.${index}.name`} name={`ingredients.${index}.name`} />
+																			<Field className='input' id={`ingredients.${index}.name`} name={`ingredients.${index}.name`} />
 																		</div>
 																	</div>
 																	<div className='content'>
@@ -188,13 +188,13 @@ function recipeDetail() {
 																			<div className='control'>
 																				<label className='label is-small'>Qty - Amount </label>
 																				<div className='control'>
-																					<Field className='input is-small' id={`ingredients.${index}`} name={`ingredients.${index}.amount`} />
+																					<Field className='input' id={`ingredients.${index}`} name={`ingredients.${index}.amount`} />
 																				</div>
 																			</div>
 																			<div className='control'>
 																				<label className='label is-small'>Qty- Unit</label>
 																				<div className='control'>
-																					<Field className='input is-small' id={`ingredients.${index}.unit`} name={`ingredients.${index}.unit`} />
+																					<Field className='input' id={`ingredients.${index}.unit`} name={`ingredients.${index}.unit`} />
 																				</div>
 																			</div>
 																			<div className='control'>
@@ -243,13 +243,13 @@ function recipeDetail() {
 																				<div className='control'>
 																					<label className='label is-small'>Auto-Id</label>
 																					<div className='control'>
-																						<Field className='input is-small' id={`instructions.${index}._id`} name={`instructions.${index}._id`} />
+																						<Field className='input' id={`instructions.${index}._id`} name={`instructions.${index}._id`} />
 																					</div>
 																				</div>
 																				<div className='control'>
 																					<label className='label is-small'>Instruction's Rank (Enter dash - to skip)</label>
 																					<div className='control'>
-																						<Field className='input is-small' id={`instructions.${index}.step`} name={`instructions.${index}.step`} />
+																						<Field className='input' id={`instructions.${index}.step`} name={`instructions.${index}.step`} />
 																					</div>
 																				</div>
 																				<div className='control'>
@@ -269,7 +269,7 @@ function recipeDetail() {
 																		<div className='control'>
 																			<label className='label is-small'>Instruction's Description </label>
 																			<div className='control'>
-																				<Field className='input is-small' id={`instructions.${index}`} name={`instructions.${index}.description`} />
+																				<Field className='input' id={`instructions.${index}`} name={`instructions.${index}.description`} />
 																			</div>
 																		</div>
 																	</div>
@@ -305,11 +305,11 @@ function recipeDetail() {
 																	<div className='field is-grouped'>
 																		<div className='control is-expanded'>
 																			<label className='label is-small'>Time Required (hr)</label>
-																			<Field className='input is-small' id={`times.${index}.hr`} name={`times.${index}.hr`} />
+																			<Field className='input' id={`times.${index}.hr`} name={`times.${index}.hr`} />
 																		</div>
 																		<div className='control is-expanded'>
 																			<label className='label is-small'>Time Required (min)</label>
-																			<Field className='input is-small' id={`times.${index}.min`} name={`times.${index}.min`} />
+																			<Field className='input' id={`times.${index}.min`} name={`times.${index}.min`} />
 																		</div>
 																	</div>
 																</div>
@@ -340,7 +340,7 @@ function recipeDetail() {
 																	<div className='field is-grouped'>
 																		<div className='control is-expanded'>
 																			<label className='label is-small'>Enter Tag</label>
-																			<Field className='input is-small' id={`tags.${index}`} name={`tags.${index}`} />
+																			<Field className='input' id={`tags.${index}`} name={`tags.${index}`} />
 																		</div>
 																		<div className='control'>
 																			<label className='label is-small has-text-grey-light'>Removes the entire form</label>
