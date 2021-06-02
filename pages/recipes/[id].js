@@ -13,8 +13,28 @@ function recipeDetail() {
 	const [initialValues, setInitialValues] = useState();
 
 	const onSubmit = (values) => {
+		const id = values._id;
 		delete values._id;
-		console.log(JSON.stringify(values, null, 2));
+		// console.log(JSON.stringify(values, null, 2));
+
+		fetch(process.env.NEXT_PUBLIC_UPDATE_RECIPE_BY_ID_URL.replace('{ID}', id), {
+			method: 'PATCH',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: getActiveUserTokenHandler(),
+			},
+			body: JSON.stringify(values),
+		})
+			.then((response) => {
+				response.json().then((data) => {
+					if (data) {
+						router.push('/recipes');
+					}
+				});
+			})
+			.catch((error) => {
+				console.error(error);
+			});
 	};
 
 	const formikBag = useFormik({
