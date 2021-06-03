@@ -1,7 +1,9 @@
+import { Widget } from '@uploadcare/react-widget';
 import { Field, FieldArray, FormikProvider, useFormik } from 'formik';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useAppContext } from './../../utils/app-context';
+// import { Widget } from '@uploadcare/react-widget';
 
 function recipeDetail() {
 	const { activeUserToken } = useAppContext();
@@ -81,6 +83,8 @@ function recipeDetail() {
 			});
 	};
 
+	const uploadToWP = () => {};
+
 	return (
 		<div className='section mt-6'>
 			<FormikProvider enableReinitialize={true} value={formikBag}>
@@ -153,11 +157,32 @@ function recipeDetail() {
 								</div>
 							</div>
 							<div className='field'>
-								<label className='label is-small'>Enter Picture Url</label>
-								<div className='control'>
-									<Field className='input' id='pictureUrl' name='pictureUrl' type='text' onChange={(e) => setFieldValue('pictureUrl', e.target.value)} value={formikBag.values.pictureUrl} />
+								<div className='field is-grouped'>
+									<div className='control is-expanded'>
+										<label className='label is-small'>Enter Picture Url</label>
+										<div className='control'>
+											<Field className='input' id='pictureUrl' name='pictureUrl' type='text' onChange={(e) => setFieldValue('pictureUrl', e.target.value)} value={formikBag.values.pictureUrl} />
+										</div>
+									</div>
+									<div className='control'>
+										<label className='label is-small'>&nbsp;</label>
+										<div className='control'>
+											<Widget
+												tabs='file'
+												publicKey={process.env.NEXT_PUBLIC_UPLOADER_PUB_KEY}
+												onFileSelect={(e) => {
+													e.done((file) => {
+														console.log(file.originalUrl);
+														formikBag.values.pictureUrl = file.originalUrl;
+														setFieldValue('pictureUrl', file.originalUrl);
+													});
+												}}
+											/>
+										</div>
+									</div>
 								</div>
 							</div>
+
 							<div className='field'>
 								<label className='label is-small'>Enter Servings</label>
 								<div className='control'>
