@@ -168,7 +168,10 @@ function recipeDetail() {
 										<label className='label is-small'>&nbsp;</label>
 										<div className='control'>
 											<Widget
-												tabs='file'
+												tabs='file url'
+												previewStep={true}
+												imagesOnly={true}
+												multiple={false}
 												publicKey={process.env.NEXT_PUBLIC_UPLOADER_PUB_KEY}
 												onFileSelect={(e) => {
 													e.done((file) => {
