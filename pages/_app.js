@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -28,14 +27,6 @@ function MyApp({ Component, pageProps }) {
 	const active = isModal ? 'is-active' : '';
 	return (
 		<section>
-			<Head>
-				<title>Recipe Admin</title>
-				<meta name='viewport' content='initial-scale=1.0, width=device-width' />
-				<meta name='description' content='Recipe Admin - Created by Nhilesh Baua' />
-				<meta name='author' content='Nhilesh Baua' />
-				<meta name='keywords' content='Recipe Admin, React, Next, React JS, Next Js, Bulma, Bulma CSS, React.JS, Next.JS' />
-				<meta name='revised' content={new Date()} />
-			</Head>
 			<AppContextProvider>
 				<div className={`modal ${active}`}>
 					<div className='modal-background' />
