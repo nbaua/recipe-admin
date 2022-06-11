@@ -10,8 +10,8 @@ class MyDocument extends Document {
 		return (
 			<Html>
 				<Head>
-					<title>Recipe Admin</title>
-					<meta name='viewport' content='initial-scale=1.0, width=device-width' />
+					{/* <title>Recipe Admin</title>
+					<meta name='viewport' content='initial-scale=1.0, width=device-width' /> */}
 					<meta name='description' content='Recipe Admin - Created by Nhilesh Baua' />
 					<meta name='author' content='Nhilesh Baua' />
 					<meta name='keywords' content='Recipe Admin, React, Next, React JS, Next Js, Bulma, Bulma CSS, React.JS, Next.JS' />
